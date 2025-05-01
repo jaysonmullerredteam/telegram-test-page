@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stress Test</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            padding-top: 50px;
+        }
+    </style>
+    <script>
+        // Нагрузка на процессор
+        function cpuStress() {
+            let i = 0;
+            while (i < 10000000) {
+                // Генерация случайных чисел для нагрузки на процессор
+                let arr = [];
+                for (let j = 0; j < 1000; j++) {
+                    arr.push(Math.random());
+                }
+                i++;
+            }
+        }
+
+        // Функция для ограничения выхода с страницы
+        function preventExit() {
+            // Обработчик события на выход с окна
+            window.onbeforeunload = function() {
+                return "Вы уверены, что хотите покинуть эту страницу?";
+            }
+        }
+
+        // Запуск нагрузки на процессор и запрещение выхода
+        function startTest() {
+            cpuStress();   // Нагрузка на процессор
+            preventExit(); // Запрещаем выход с страницы
+        }
+
+        window.onload = function() {
+            startTest(); // Начало теста сразу после загрузки страницы
+        };
+    </script>
+</head>
+<body>
+    <h1>Тестирование нагрузки на телефон</h1>
+    <p>Этот сайт создает максимальную нагрузку на телефон. Нажми на ссылку, чтобы начать тест.</p>
+    <button onclick="startTest()">Начать тест</button>
+</body>
+</html>
